@@ -1,4 +1,4 @@
-# Frontend build for Railway deployment
+# Frontend Dockerfile for Railway
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
