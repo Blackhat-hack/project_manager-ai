@@ -11,6 +11,9 @@ import { CreateTaskModal } from '@/components/modals/create-task-modal'
 import { TaskDetailModal } from '@/components/modals/task-detail-modal'
 import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, PointerSensor, useSensor, useSensors, useDroppable, useDraggable } from '@dnd-kit/core'
 
+// Force dynamic rendering to avoid pre-rendering issues with useSearchParams
+export const dynamic = 'force-dynamic'
+
 export default function TasksPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
