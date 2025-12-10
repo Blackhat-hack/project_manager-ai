@@ -5,7 +5,6 @@ export function useHydration() {
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
-    // Attendre que Zustand termine l'hydratation depuis localStorage
     const unsubHydrate = useAuthStore.persist.onHydrate(() => {
       setHydrated(false)
     })
@@ -14,7 +13,6 @@ export function useHydration() {
       setHydrated(true)
     })
 
-    // Au cas où l'hydratation est déjà terminée
     setHydrated(useAuthStore.persist.hasHydrated())
 
     return () => {

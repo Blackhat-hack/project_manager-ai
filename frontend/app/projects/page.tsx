@@ -21,7 +21,6 @@ export default function ProjectsPage() {
   const unreadCount = useNotificationStore(state => state.unreadCount)
 
   useEffect(() => {
-    // Attendre que le store soit hydraté
     const timer = setTimeout(() => {
       setIsLoading(false)
       if (!user) {

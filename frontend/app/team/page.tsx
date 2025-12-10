@@ -40,7 +40,6 @@ export default function TeamPage() {
   const handleInviteMember = (memberData: { firstName: string; lastName: string; email: string; role: string }) => {
     const newMember = addMember(memberData)
     
-    // Ajouter une notification
     addNotification({
       type: 'info',
       title: 'Membre invité',

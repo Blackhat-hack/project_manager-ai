@@ -21,7 +21,6 @@ interface TeamState {
   getMemberById: (id: number) => TeamMember | undefined
 }
 
-// Mock team members data
 const mockMembers: TeamMember[] = [
   {
     id: 1,
@@ -79,7 +78,6 @@ export const useTeamStore = create<TeamState>((set, get) => ({
     set({ isLoading: true, error: null })
     try {
       await new Promise(resolve => setTimeout(resolve, 300))
-      // Always store all members in the store
       set({ members: mockMembers, isLoading: false })
     } catch (error) {
       set({ error: 'Erreur lors du chargement des membres', isLoading: false })
@@ -87,7 +85,6 @@ export const useTeamStore = create<TeamState>((set, get) => ({
   },
 
   addMember: (member) => {
-    // Générer un avatar aléatoire
     const avatars = ['👨‍💻', '👩‍💻', '👨‍💼', '👩‍💼', '👨‍🎨', '👩‍🎨', '👨‍🔬', '👩‍🔬', '🧑‍💻', '🧑‍💼']
     const randomAvatar = avatars[Math.floor(Math.random() * avatars.length)]
     
@@ -98,7 +95,6 @@ export const useTeamStore = create<TeamState>((set, get) => ({
       projectIds: []
     }
     
-    // Ajouter au mockMembers pour qu'il persiste
     mockMembers.push(newMember)
     
     set(state => ({
@@ -109,7 +105,6 @@ export const useTeamStore = create<TeamState>((set, get) => ({
   },
 
   getProjectMembers: (projectId: number) => {
-    // Filter from mockMembers, not from store members
     return mockMembers.filter(m => m.projectIds.includes(projectId))
   },
 

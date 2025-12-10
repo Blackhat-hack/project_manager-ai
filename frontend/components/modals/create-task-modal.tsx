@@ -58,7 +58,6 @@ export function CreateTaskModal({ isOpen, onClose, defaultProjectId }: CreateTas
       position: 0
     })
 
-    // Ajouter une notification
     const project = projects.find(p => p.id === parseInt(formData.projectId))
     addNotification({
       type: 'task',

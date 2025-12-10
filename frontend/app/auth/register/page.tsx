@@ -25,7 +25,6 @@ export default function RegisterPage() {
     setLoading(true)
 
     try {
-      // Validation
       if (formData.password !== formData.confirmPassword) {
         setError('Les mots de passe ne correspondent pas')
         setLoading(false)

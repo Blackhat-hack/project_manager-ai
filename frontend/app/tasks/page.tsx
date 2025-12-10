@@ -11,7 +11,6 @@ import { CreateTaskModal } from '@/components/modals/create-task-modal'
 import { TaskDetailModal } from '@/components/modals/task-detail-modal'
 import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, PointerSensor, useSensor, useSensors, useDroppable, useDraggable } from '@dnd-kit/core'
 
-// Force dynamic rendering to avoid pre-rendering issues with useSearchParams
 export const dynamic = 'force-dynamic'
 
 export default function TasksPage() {
@@ -343,7 +342,6 @@ export default function TasksPage() {
   )
 }
 
-// Composant pour les colonnes droppables
 function DroppableColumn({ id, children }: { id: string; children: React.ReactNode }) {
   const { setNodeRef } = useDroppable({ id })
   
@@ -354,7 +352,6 @@ function DroppableColumn({ id, children }: { id: string; children: React.ReactNo
   )
 }
 
-// Composant pour les tâches draggables
 function DraggableTask({ task, children, onClick }: { task: Task; children: React.ReactNode; onClick: () => void }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: task.id,

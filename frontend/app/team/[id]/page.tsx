@@ -63,13 +63,11 @@ export default function TeamMemberDetailPage() {
     )
   }
 
-  // Get member's tasks
   const memberTasks = tasks.filter(task => task.assignedTo?.id === memberId)
   const completedTasks = memberTasks.filter(task => task.status === 'done')
   const inProgressTasks = memberTasks.filter(task => task.status === 'in-progress')
   const todoTasks = memberTasks.filter(task => task.status === 'todo')
 
-  // Get member's projects
   const memberProjects = projects.filter(project => member.projectIds.includes(project.id))
 
   return (

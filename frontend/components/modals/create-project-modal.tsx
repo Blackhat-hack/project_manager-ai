@@ -36,7 +36,6 @@ export function CreateProjectModal({ isOpen, onClose }: CreateProjectModalProps)
       owner: { id: 1, name: 'Current User' }
     })
     
-    // Ajouter une notification
     addNotification({
       type: 'project',
       title: 'Nouveau projet créé',

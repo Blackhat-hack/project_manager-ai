@@ -29,7 +29,6 @@ interface TaskState {
   moveTask: (id: number, newStatus: 'todo' | 'in-progress' | 'review' | 'done', newPosition: number) => void
 }
 
-// Mock tasks data
 const mockTasksData: Task[] = [
   {
     id: 1,
@@ -71,14 +70,11 @@ export const useTaskStore = create<TaskState>()(persist(
   fetchTasks: async (projectId: number) => {
     set({ isLoading: true, error: null })
     try {
-      // TODO: Remplacer par un vrai appel API
       await new Promise(resolve => setTimeout(resolve, 500))
       
-      // Ne charger les données mockées que si le store est vide
       const currentTasks = get().tasks
       
       if (currentTasks.length === 0) {
-        // Mock tasks - seulement au premier chargement
         const mockTasks: Task[] = [
           {
             id: 1,

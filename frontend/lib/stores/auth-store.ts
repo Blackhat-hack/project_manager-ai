@@ -39,11 +39,9 @@ export const useAuthStore = create<AuthState>()(
         try {
           await new Promise(resolve => setTimeout(resolve, 1000))
           
-          // Récupérer les utilisateurs stockés
           const usersJson = localStorage.getItem('registered-users')
           const users = usersJson ? JSON.parse(usersJson) : []
           
-          // Trouver l'utilisateur avec cet email
           const foundUser = users.find((u: any) => u.email === email && u.password === password)
           
           if (!foundUser) {
@@ -72,11 +70,9 @@ export const useAuthStore = create<AuthState>()(
         try {
           await new Promise(resolve => setTimeout(resolve, 1000))
           
-          // Récupérer les utilisateurs existants
           const usersJson = localStorage.getItem('registered-users')
           const users = usersJson ? JSON.parse(usersJson) : []
           
-          // Vérifier si l'email existe déjà
           if (users.some((u: any) => u.email === email)) {
             throw new Error('Cet email est déjà utilisé')
           }
@@ -89,7 +85,6 @@ export const useAuthStore = create<AuthState>()(
             lastName
           }
           
-          // Ajouter le nouvel utilisateur
           users.push(newUser)
           localStorage.setItem('registered-users', JSON.stringify(users))
 

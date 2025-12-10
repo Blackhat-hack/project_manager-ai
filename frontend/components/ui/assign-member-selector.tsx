@@ -18,7 +18,6 @@ export function AssignMemberSelector({ value, onChange, projectId, placeholder =
   const fetchMembers = useTeamStore(state => state.fetchMembers)
 
   useEffect(() => {
-    // Always fetch all members
     fetchMembers()
   }, [fetchMembers])
 
@@ -33,7 +32,6 @@ export function AssignMemberSelector({ value, onChange, projectId, placeholder =
     }
   }, [isOpen])
 
-  // Always show all members - anyone can be assigned to any project
   const availableMembers = members
 
   const handleSelect = (member: TeamMember | null) => {

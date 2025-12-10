@@ -30,7 +30,6 @@ interface ProjectState {
   setCurrentProject: (project: Project | null) => void
 }
 
-// Mock data
 const mockProjects: Project[] = [
   {
     id: 1,
@@ -75,9 +74,7 @@ export const useProjectStore = create<ProjectState>()(
       fetchProjects: async () => {
         set({ isLoading: true, error: null })
         try {
-          // TODO: Remplacer par un vrai appel API
           await new Promise(resolve => setTimeout(resolve, 500))
-          // Ne pas écraser les projets existants, seulement initialiser si vide
           const currentProjects = get().projects
           if (currentProjects.length === 0) {
             set({ projects: mockProjects, isLoading: false })

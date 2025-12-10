@@ -27,7 +27,6 @@ export function InviteMemberModal({ isOpen, onClose, onInvite }: InviteMemberMod
       return
     }
 
-    // Validation email simple
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(formData.email)) {
       alert('Veuillez entrer une adresse email valide')
@@ -36,7 +35,6 @@ export function InviteMemberModal({ isOpen, onClose, onInvite }: InviteMemberMod
 
     onInvite(formData)
     
-    // Reset form
     setFormData({
       firstName: '',
       lastName: '',
